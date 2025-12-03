@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trò Chơi Đoán Số</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <img class="full-screen-image" src="city.jpg">
+
+    <div class="container">
+        <div class="text">GUESS THE NUMBER</div>
+
+        <div class="level-selection">
+            <button id="easy-btn" data-level="easy" class="level-btn">DỄ (1-20, 5 lượt)</button>
+            <button id="medium-btn" data-level="medium" class="level-btn">TRUNG BÌNH (1-50, 7 lượt)</button>
+            <button id="hard-btn" data-level="hard" class="level-btn">kHÓ (1-500, 10 lượt)</button>
+        </div>
+
+        <p class="range-info">Phạm vi: 1 đến <span id="max-num">...</span> | Lượt đoán còn lại: <span id="guesses-left">...</span></p>
+
+        <div class="input-area">
+        <input type="number" id="guessInput" min="1" max="500" placeholder="Nhập số đoán của bạn">
+        <button id="check-btn">Kiểm Tra</button>
+        </div>
+
+        <p id="message" class="message-box">Chọn mức độ để bắt đầu!</p>
+
+        <div id="overlay" class="overlay hidden">
+            <div class="modal">
+                <p id="modal-message"></p>
+                <button id="play-again-btn">Chơi Lại</button>
+            </div>
+        </div>
+        
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

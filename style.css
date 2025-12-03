@@ -1,0 +1,253 @@
+@import url('https://fonts.googleapis.com/css2?family=Kedebideri:wght@400;500;600;700;800;900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.full-screen-image{
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    position: fixed;
+    z-index: -1;
+}
+
+body{
+    font-family: 'Quicksand', montserrat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    color: #ecf0f1;
+}
+
+.container{
+    background: #34495e;
+    padding: 30px 40px;
+    border-radius: 15px;
+    border: 3px solid #00ffff;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    width: 90%;
+    max-width: 500px;
+    z-index: 1;
+}
+
+.text{
+    font-weight: bold;
+    color: #fddd5e;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
+    width: 90%;
+    margin: 0 auto;
+    font-size: 4em;
+    letter-spacing: 4px;
+    margin-bottom: 10px;
+}
+
+.level-selection{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.level-btn{
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #7f8c8d;
+    color: #fff
+}
+
+.level-btn:hover{
+    transform: translateY(2px);
+    transition: all 0.3s ease;
+}
+
+.level-btn.active-easy{
+    background-color: #2ecc71;
+    box-shadow: 0 0 15px #2ecc71;
+}
+
+.level-btn.active-medium{
+    background-color: #f39c12;
+    box-shadow: 0 0 15px #f39c12;
+}
+
+.level-btn.active-hard{
+    background-color: #e74c3c;
+    box-shadow: 0 0 15px #e74c3c;
+}
+
+.level-btn:not(.active-level):hover {
+    opacity: 0.8;
+}
+
+.input-area{
+    display: flex;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+#guessInput{
+    flex-grow: 1;
+    padding: 12px;
+    border: 3px solid #7f8c8d;
+    transition: border-color 0.3s;
+    border-radius: 8px;
+    outline: none;
+    background: #ecf0f1;
+    color: #2c3e50;
+    font-size: 1.1em;
+}
+
+#check-btn{
+    padding: 12px 25px;
+    border: none;
+    cursor: pointer;
+    font-size: 1,1em;
+    font-weight: bold;
+    background-color: #3498db;
+    color: white;
+    transition: background-color 0.1s;
+    border-radius: 8px;
+}
+
+#check-btn:hover{
+    transform: translateY(2px);
+    transition: all 0.3s ease;
+}
+
+#check-btn.correct{
+    background-color: #27ae60;
+}
+
+#check-btn.wrong{
+    background-color: #c0392b;
+}
+
+.message-box{
+    padding: 12px;
+    background-color: #2c3e50;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: 500;
+    margin-top: 20px;
+}
+
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+.shake {
+    animation: shake 0.5s;
+    border: 2px solid #e74c3c;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal {
+    background: #34495e;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+#play-again-btn {
+    padding: 10px 20px;
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+@media (max-width: 600px) {
+    body{
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    .container{
+        width: 95vw;
+        padding: 15px;
+        margin-top: 10px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+        margin-bottom: 10px;
+    }
+
+    .level-selection {
+        flex-direction: column;
+        gap: 8px; 
+        margin-bottom: 20px;
+    }
+
+    .level-btn {
+        width: 100%; 
+        padding: 10px 0;
+        font-size: 0.9rem;
+    }
+
+    .guess-control {
+        flex-direction: column; 
+        gap: 10px;
+    }
+    
+    #guessInput, #check-btn {
+        width: 100%;
+        font-size: 1rem;
+        padding: 12px;
+    }
+
+    .modal {
+        width: 85vw;
+        padding: 20px;
+    }
+
+    #modal-message {
+        font-size: 1.1rem;
+    }
+
+    #play-again-btn {
+        font-size: 1rem;
+        padding: 10px 15px;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+    .container {
+        width: 70vw;
+    }
+}
